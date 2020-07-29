@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <label>C'est au tour de {{ players[activePlayerIndex].name }}</label>
     <Cricket></Cricket>
     <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]"></NumberGrid>
     <button @click="previousPlayer">Previous</button>
