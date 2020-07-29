@@ -1,19 +1,55 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Cricket></Cricket>
+    <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]"></NumberGrid>
+    <button @click="previousPlayer">Previous</button>
+    <button @click="nextPlayer">Next</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Cricket from "./components/Cricket"
+  import NumberGrid from "./components/NumberGrid"
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      NumberGrid,
+      Cricket
+    },
+    data() {
+      return {
+        players: [
+            {
+                name: 'Player1',
+                score: []
+            },
+            {
+                name: 'Player2',
+                score: []
+            },
+        ],
+        activePlayerIndex: 0
+      }
+    },
+    methods: {
+      nextPlayer() {
+        if (this.players[this.activePlayerIndex + 1]) {
+          return this.activePlayerIndex = this.activePlayerIndex + 1
+        }
+
+        return this.activePlayerIndex = 0
+      },
+      previousPlayer() {
+        if(this.players[this.activePlayerIndex - 1]) {
+            return this.activePlayerIndex = this.activePlayerIndex - 1
+        }
+
+        return this.activePlayerIndex = this.players.length
+      }
+    }
   }
-}
 </script>
 
 <style>
