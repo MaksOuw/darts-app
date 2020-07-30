@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <label>C'est au tour de {{ players[activePlayerIndex].name }}</label>
-    <Cricket></Cricket>
+    <label>C'est au tour de <strong>{{ players[activePlayerIndex].name }}</strong></label>
+    <Cricket :players="players"></Cricket>
     <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]"></NumberGrid>
     <button @click="previousPlayer">Previous</button>
     <button @click="nextPlayer">Next</button>
@@ -23,11 +23,13 @@
         players: [
             {
                 name: 'Player1',
-                score: []
+                darts: [],
+                score: 0
             },
             {
                 name: 'Player2',
-                score: []
+                darts: [],
+                score: 0
             },
         ],
         activePlayerIndex: 0

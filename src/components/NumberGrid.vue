@@ -26,10 +26,30 @@
         props: [ 'players', 'activePlayer' ],
         methods: {
             addNumber(number) {
-                return this.activePlayer.score.push(number)
+                let touches = this.getTouches(number)
+                if(touches >= 3) {
+                    this.activePlayer.score += number
+                }
+
+                return this.activePlayer.darts.push(number)
             },
             cancel() {
-                return this.activePlayer.score.pop()
+                let touches = this.getTouches(this.activePlayer.darts[this.activePlayer.darts.length - 1])
+                if(touches > 3) {
+                    this.activePlayer.score -= this.activePlayer.darts[this.activePlayer.darts.length - 1]
+                }
+
+                return this.activePlayer.darts.pop()
+            },
+            getTouches(number) {
+                let touches = 0
+                this.activePlayer.darts.forEach(function(dart) {
+                    if(dart === number) {
+                        touches++
+                    }
+                })
+
+                return touches
             }
         },
         created() {

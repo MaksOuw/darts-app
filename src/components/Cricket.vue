@@ -11,42 +11,29 @@
           <th>19</th>
           <th>20</th>
           <th>Bulle</th>
+          <th>Score</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Player1</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Player2</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <Player v-for="(player, index) in players" :player="player" :key="index"></Player>
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
-    export default {
-        name: "Cricket"
-    }
+  import Player from "./Player"
+  export default {
+      name: "Cricket",
+      props: ['players'],
+      components: {
+          Player
+      }
+  }
 </script>
 
 <style scoped>
-  table, tr, td, th {
+  table {
     border: 1px solid black;
   }
 </style>
