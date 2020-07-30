@@ -73,14 +73,13 @@
         let hasWin = true
         for (let dart in darts) {
             if(darts[dart] < 3) {
+                console.log(dart)
+                console.log(darts[dart])
                 hasWin = false
             }
         }
         if(hasWin) {
             $("#pyro").show()
-        }
-        else {
-            $("#pyro").hide()
         }
       })
     }
