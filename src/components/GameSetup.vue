@@ -28,6 +28,9 @@
         methods: {
             addPlayer() {
                 let playerSelector = $("#playerName")
+                if(playerSelector.val() === '') {
+                    return
+                }
                 this.players.push({
                     name: playerSelector.val(),
                     darts: [],
