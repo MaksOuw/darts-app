@@ -11,12 +11,7 @@
     </div>
     <div class="row justify-content-md-center mt-2">
       <div class="col">
-        <Cricket :players="players"></Cricket>
-      </div>
-    </div>
-    <div class="row justify-content-md-center mt-2">
-      <div class="col">
-        <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]" :mode="mode"></NumberGrid>
+        <Cricket :players="players" :activePlayer="players[activePlayerIndex]" :mode="mode"></Cricket>
       </div>
     </div>
     <div class="row justify-content-md-center mt-2">
@@ -30,12 +25,10 @@
 
 <script>
     import Cricket from "./Cricket"
-    import NumberGrid from "./NumberGrid"
     import $ from "jquery"
     export default {
         name: "Game",
         components: {
-            NumberGrid,
             Cricket
         },
         data() {
