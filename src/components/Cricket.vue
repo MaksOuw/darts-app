@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <Player v-for="(player, index) in players" :player="player" :key="index"></Player>
+        <Player v-for="(player, index) in players" :player="player" :key="index" :mode="mode"></Player>
       </tbody>
     </table>
     <div class="row justify-content-md-center">

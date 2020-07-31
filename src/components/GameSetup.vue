@@ -19,7 +19,9 @@
     <div class="row justify-content-md-center mt-2">
       <div class="col">
         <button class="btn btn-primary" @click="start('cricket')">Cricket</button>
-        <button class="btn btn-primary m-2" @click="start('cutThroat')">Cricket Cut Throat</button>
+        <button class="btn btn-success m-2" @click="start('cutThroat')">Cricket Cut Throat</button>
+        <button class="btn btn-danger m-2" @click="start('301')">301</button>
+        <button class="btn btn-info m-2" @click="start('501')">501</button>
       </div>
     </div>
   </div>
@@ -53,6 +55,18 @@
                     alert('Il faut au moins deux joueurs pour démarrer une partie')
 
                     return
+                }
+                let score = 0
+                if(mode === "301") {
+                    score = 301
+                }
+                if(mode === "501") {
+                    score = 501
+                }
+                if(score !== 0) {
+                    this.players.forEach(function(player) {
+                        player.score = score
+                    })
                 }
                 this.$store.commit("setGame", {
                     players: this.players,

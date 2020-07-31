@@ -11,7 +11,8 @@
     </div>
     <div class="row justify-content-md-center mt-2">
       <div class="col">
-        <Cricket :players="players" :activePlayer="players[activePlayerIndex]" :mode="mode"></Cricket>
+        <Cricket v-if="this.mode === 'cricket' || this.mode === 'cutThroat'" :players="players" :active-player="players[activePlayerIndex]" :mode="this.mode"></Cricket>
+        <x01 v-if="this.mode === '301' || this.mode === '501'" :players="players" :active-player="players[activePlayerIndex]" :mode="this.mode"></x01>
       </div>
     </div>
     <div class="row justify-content-md-center mt-2">
@@ -26,9 +27,11 @@
 <script>
     import Cricket from "./Cricket"
     import $ from "jquery"
+    import X01 from "./x01"
     export default {
         name: "Game",
         components: {
+            X01,
             Cricket
         },
         data() {
@@ -55,29 +58,39 @@
             }
         },
         updated() {
-            this.players.forEach(function(player) {
-                let darts = {
-                    15: 0,
-                    16: 0,
-                    17: 0,
-                    18: 0,
-                    19: 0,
-                    20: 0,
-                    25: 0
-                }
-                player.darts.forEach(function(dart) {
-                    darts[dart]++
-                })
-                let hasWin = true
-                for (let dart in darts) {
-                    if(darts[dart] < 3) {
-                        hasWin = false
+            let hasWin = true
+            if(this.mode === 'cricket' || this.mode === 'cutThroat') {
+                this.players.forEach(function(player) {
+                    let darts = {
+                        15: 0,
+                        16: 0,
+                        17: 0,
+                        18: 0,
+                        19: 0,
+                        20: 0,
+                        25: 0
                     }
-                }
-                if(hasWin) {
-                    $("#pyro").show()
-                }
-            })
+                    player.darts.forEach(function(dart) {
+                        darts[dart]++
+                    })
+                    for (let dart in darts) {
+                        if(darts[dart] < 3) {
+                            hasWin = false
+                        }
+                    }
+                    if(hasWin) {
+                        $("#pyro").show()
+                    }
+                })
+            }
+            else if(this.mode === '301' || this.mode === '501') {
+                this.players.forEach(function(player) {
+                    hasWin = player.score === 0;
+                    if(hasWin) {
+                        $("#pyro").show()
+                    }
+                })
+            }
         }
     }
 </script>
