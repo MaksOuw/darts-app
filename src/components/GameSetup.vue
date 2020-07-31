@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="playerName">Ajoutez les joueurs</label><br/>
+    <label for="playerName">Ajoutez des joueurs</label><br/>
     <label v-for="(player, index) in players" :key="index">{{ player.name }}, </label><br/>
     <input type="text" id="playerName" name="playerName" placeholder="Jean-michel"/>
     <button @click="addPlayer">Ajouter</button>
