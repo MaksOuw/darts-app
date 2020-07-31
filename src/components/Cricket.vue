@@ -1,6 +1,6 @@
 <template>
-  <div class="cricket">
-    <table>
+  <div class="col">
+    <table class="table table-bordered table-striped text-center">
       <thead>
         <tr>
           <th>Joueur</th>

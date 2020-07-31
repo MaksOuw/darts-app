@@ -1,18 +1,26 @@
 <template>
   <div class="container">
     <div class="row justify-content-md-center">
-      <label for="playerName">Ajoutez des joueurs</label><br/>
+      <div class="col">
+        <label for="playerName">Ajoutez des joueurs</label><br/>
+      </div>
     </div>
     <div class="row justify-content-md-center">
-      <label v-for="(player, index) in players" :key="index">{{ player.name }}, </label><br/>
+      <div class="col">
+        <label v-for="(player, index) in players" :key="index">{{ player.name }}, </label><br/>
+      </div>
     </div>
     <div class="row justify-content-md-center">
-      <input class="form-control w-25 p-3" type="text" id="playerName" name="playerName" placeholder="Jean-michel"/>
-      <button class="btn btn-primary ml-2" @click="addPlayer">Ajouter</button>
+      <div class="col">
+        <input class="form-control" type="text" id="playerName" name="playerName" placeholder="Jean-michel"/>
+        <button class="btn btn-primary m-2" @click="addPlayer">Ajouter</button>
+      </div>
     </div>
     <div class="row justify-content-md-center mt-2">
-      <button class="btn btn-primary" @click="start('cricket')">Cricket</button>
-      <button class="btn btn-primary ml-2" @click="start('cutThroat')">Cricket Cut Throat</button>
+      <div class="col">
+        <button class="btn btn-primary" @click="start('cricket')">Cricket</button>
+        <button class="btn btn-primary m-2" @click="start('cutThroat')">Cricket Cut Throat</button>
+      </div>
     </div>
   </div>
 </template>

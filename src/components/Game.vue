@@ -1,21 +1,29 @@
 <template>
-  <div>
+  <div class="container">
     <div id="pyro" class="pyro" style="display: none;">
       <div class="before"></div>
       <div class="after"></div>
     </div>
     <div class="row justify-content-md-center">
-      <label>C'est au tour de <strong>{{ players[activePlayerIndex].name }}</strong></label>
+      <div class="col">
+        <label>C'est au tour de <strong>{{ players[activePlayerIndex].name }}</strong></label>
+      </div>
     </div>
     <div class="row justify-content-md-center mt-2">
-      <Cricket :players="players"></Cricket>
+      <div class="col">
+        <Cricket :players="players"></Cricket>
+      </div>
     </div>
     <div class="row justify-content-md-center mt-2">
-      <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]" :mode="mode"></NumberGrid>
+      <div class="col">
+        <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]" :mode="mode"></NumberGrid>
+      </div>
     </div>
     <div class="row justify-content-md-center mt-2">
-      <button class="btn btn-secondary mr-1" @click="previousPlayer">Précédent</button>
-      <button class="btn btn-primary ml-1" @click="nextPlayer">Suivant</button>
+      <div class="col">
+        <button class="btn btn-secondary mr-1" @click="previousPlayer">Précédent</button>
+        <button class="btn btn-primary ml-1" @click="nextPlayer">Suivant</button>
+      </div>
     </div>
   </div>
 </template>
