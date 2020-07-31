@@ -41,7 +41,7 @@
                     return this.activePlayerIndex = this.activePlayerIndex - 1
                 }
 
-                return this.activePlayerIndex = this.players.length
+                return this.activePlayerIndex = this.players.length - 1
             }
         },
         updated() {
