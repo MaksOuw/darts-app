@@ -21,16 +21,19 @@
         },
         methods: {
             addPlayer() {
-                return this.players.push({
-                    name: $("#playerName").val(),
+                let playerSelector = $("#playerName")
+                this.players.push({
+                    name: playerSelector.val(),
                     darts: [],
                     score: 0
                 })
+
+                return playerSelector.val('')
             },
             start() {
                 if(this.players.length <= 1) {
                     alert('Il faut au moins deux joueurs pour démarrer une partie')
-                    
+
                     return
                 }
                 this.$store.commit("setPlayers", {players: this.players})
