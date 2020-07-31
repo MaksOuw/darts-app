@@ -4,11 +4,19 @@
       <div class="before"></div>
       <div class="after"></div>
     </div>
-    <label>C'est au tour de <strong>{{ players[activePlayerIndex].name }}</strong></label>
-    <Cricket :players="players"></Cricket>
-    <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]"></NumberGrid>
-    <button @click="previousPlayer">Previous</button>
-    <button @click="nextPlayer">Next</button>
+    <div class="row justify-content-md-center">
+      <label>C'est au tour de <strong>{{ players[activePlayerIndex].name }}</strong></label>
+    </div>
+    <div class="row justify-content-md-center mt-2">
+      <Cricket :players="players"></Cricket>
+    </div>
+    <div class="row justify-content-md-center mt-2">
+      <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]"></NumberGrid>
+    </div>
+    <div class="row justify-content-md-center mt-2">
+      <button class="btn btn-secondary mr-1" @click="previousPlayer">Précédent</button>
+      <button class="btn btn-primary ml-1" @click="nextPlayer">Suivant</button>
+    </div>
   </div>
 </template>
 

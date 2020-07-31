@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <h1>Bienvenue</h1>
+    <h1>Darts</h1>
     <p>
-      <router-link to="/new"><button>Nouvelle partie</button></router-link>
+      <router-link to="/new"><button class="btn btn-primary">Nouvelle partie</button></router-link>
     </p>
     <router-view></router-view>
   </div>

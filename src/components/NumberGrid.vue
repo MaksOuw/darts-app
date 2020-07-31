@@ -1,22 +1,19 @@
 <template>
   <div class="numberGrid">
-    <table>
-      <tr>
-        <td @click="addNumber(15)">15</td>
-        <td @click="addNumber(16)">16</td>
-        <td @click="addNumber(17)">17</td>
-      </tr>
-      <tr>
-        <td @click="addNumber(18)">18</td>
-        <td @click="addNumber(19)">19</td>
-        <td @click="addNumber(20)">20</td>
-      </tr>
-      <tr>
-        <td @click="cancel">Annuler</td>
-        <td @click="addNumber(25)">Bulle</td>
-        <td></td>
-      </tr>
-    </table>
+    <div class="row justify-content-md-center">
+      <button class="btn btn-success" @click="addNumber(15)">15</button>
+      <button class="btn btn-danger ml-1" @click="addNumber(16)">16</button>
+      <button class="btn btn-success ml-1" @click="addNumber(17)">17</button>
+    </div>
+    <div class="row justify-content-md-center mt-1">
+      <button class="btn btn-danger" @click="addNumber(18)">18</button>
+      <button class="btn btn-success ml-1" @click="addNumber(19)">19</button>
+      <button class="btn btn-danger ml-1" @click="addNumber(20)">20</button>
+    </div>
+    <div class="row justify-content-md-center mt-1">
+      <button class="btn btn-success" @click="cancel">Annuler</button>
+      <button class="btn btn-danger ml-1" @click="addNumber(25)">Bulle</button>
+    </div>
   </div>
 </template>
 
@@ -61,5 +58,6 @@
 <style scoped>
   td {
     cursor: pointer;
+    border: 1px solid black;
   }
 </style>

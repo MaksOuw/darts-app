@@ -33,7 +33,8 @@
 </script>
 
 <style scoped>
-  table {
-    border: 1px solid black;
+  th {
+    min-width: 25px;
+    padding: 10px;
   }
 </style>

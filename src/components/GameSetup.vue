@@ -1,12 +1,18 @@
 <template>
-  <div>
-    <label for="playerName">Ajoutez des joueurs</label><br/>
-    <label v-for="(player, index) in players" :key="index">{{ player.name }}, </label><br/>
-    <input type="text" id="playerName" name="playerName" placeholder="Jean-michel"/>
-    <button @click="addPlayer">Ajouter</button>
-    <br/>
-    <br/>
-    <button @click="start">Démarrer</button>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <label for="playerName">Ajoutez des joueurs</label><br/>
+    </div>
+    <div class="row justify-content-md-center">
+      <label v-for="(player, index) in players" :key="index">{{ player.name }}, </label><br/>
+    </div>
+    <div class="row justify-content-md-center">
+      <input class="form-control w-25 p-3" type="text" id="playerName" name="playerName" placeholder="Jean-michel"/>
+      <button class="btn btn-primary ml-2" @click="addPlayer">Ajouter</button>
+    </div>
+    <div class="row justify-content-md-center mt-2">
+      <button class="btn btn-primary" @click="start">Démarrer</button>
+    </div>
   </div>
 </template>
 
