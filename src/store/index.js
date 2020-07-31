@@ -5,16 +5,23 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        players: []
+        game: {
+            players: [],
+            mode: 'cricket',
+        }
     },
     getters: {
         players: state => {
-            return state.players;
+            return state.game.players
+        },
+        gameMode: state => {
+            return state.game.mode
         }
     },
     mutations: {
-        setPlayers(state, payload) {
-            state.players = payload.players
+        setGame(state, payload) {
+            state.game.players = payload.players
+            state.game.mode = payload.mode
         }
     },
     actions: {}

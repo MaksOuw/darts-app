@@ -11,7 +11,7 @@
       <Cricket :players="players"></Cricket>
     </div>
     <div class="row justify-content-md-center mt-2">
-      <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]"></NumberGrid>
+      <NumberGrid :players="players" :activePlayer="players[activePlayerIndex]" :mode="mode"></NumberGrid>
     </div>
     <div class="row justify-content-md-center mt-2">
       <button class="btn btn-secondary mr-1" @click="previousPlayer">Précédent</button>
@@ -33,6 +33,7 @@
         data() {
             return {
                 players: this.$store.getters.players,
+                mode: this.$store.getters.gameMode,
                 activePlayerIndex: 0
             }
         },

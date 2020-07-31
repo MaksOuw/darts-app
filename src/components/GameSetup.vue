@@ -11,7 +11,8 @@
       <button class="btn btn-primary ml-2" @click="addPlayer">Ajouter</button>
     </div>
     <div class="row justify-content-md-center mt-2">
-      <button class="btn btn-primary" @click="start">Démarrer</button>
+      <button class="btn btn-primary" @click="start('cricket')">Cricket</button>
+      <button class="btn btn-primary ml-2" @click="start('cutThroat')">Cricket Cut Throat</button>
     </div>
   </div>
 </template>
@@ -39,13 +40,16 @@
 
                 return playerSelector.val('')
             },
-            start() {
+            start(mode) {
                 if(this.players.length <= 1) {
                     alert('Il faut au moins deux joueurs pour démarrer une partie')
 
                     return
                 }
-                this.$store.commit("setPlayers", {players: this.players})
+                this.$store.commit("setGame", {
+                    players: this.players,
+                    mode: mode
+                })
                 return this.$router.push({
                     name: 'game'
                 })

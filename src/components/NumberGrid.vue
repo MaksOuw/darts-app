@@ -20,12 +20,21 @@
 <script>
     export default {
         name: "NumberGrid",
-        props: [ 'players', 'activePlayer' ],
+        props: [ 'players', 'activePlayer', 'mode' ],
         methods: {
             addNumber(number) {
                 let touches = this.getTouches(number)
                 if(touches >= 3) {
-                    this.activePlayer.score += number
+                    if(this.mode === 'cricket') {
+                        this.activePlayer.score += number
+                    }
+                    else if(this.mode === 'cutThroat') {
+                        this.players.forEach(function(player) {
+                            if(player !== this.activePlayer) {
+                                player.score += number
+                            }
+                        }, this)
+                    }
                 }
 
                 return this.activePlayer.darts.push(number)
@@ -33,7 +42,16 @@
             cancel() {
                 let touches = this.getTouches(this.activePlayer.darts[this.activePlayer.darts.length - 1])
                 if(touches > 3) {
-                    this.activePlayer.score -= this.activePlayer.darts[this.activePlayer.darts.length - 1]
+                    if(this.mode === 'cricket') {
+                        this.activePlayer.score -= this.activePlayer.darts[this.activePlayer.darts.length - 1]
+                    }
+                    else if(this.mode === 'cutThroat') {
+                        this.players.forEach(function(player) {
+                            if(player !== this.activePlayer) {
+                                player.score -= this.activePlayer.darts[this.activePlayer.darts.length - 1]
+                            }
+                        }, this)
+                    }
                 }
 
                 return this.activePlayer.darts.pop()
